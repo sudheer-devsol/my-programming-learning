@@ -28,7 +28,15 @@
     Both are different
     
     */
-
+    // Variable Assignment
+    // $data = "PHP";
+    // $data = 100;
+    // $data = 45.5;
+    // $data = true;
+    // $data = null;
+    // Note: here all time the variable $data will be overrided with new value
+    
+    
     //Data Types
     //PHP supports several data types.
     $name = "Ali";      // String
@@ -46,5 +54,5 @@
     echo "<br>";
     
     // We can print all in one shot as 
-    echo "The Student $name whose age is $age he scored $marks in exams.";
+    echo "The Student $name whose age is $age he scored $marks% in exams.";
 ?>
