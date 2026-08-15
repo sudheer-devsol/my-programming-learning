@@ -1,0 +1,828 @@
+/* ==========================================================================
+   TRAVEL PAKISTAN — DESIGN SYSTEM
+   Palette pulled from geography: lake teal, brick terracotta, truck-art
+   marigold, alpine-mist paper. Fraunces for voice, Work Sans for reading,
+   Barlow Condensed for waypoints/labels.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap');
+
+:root{
+    /* ---- color ---- */
+    --ink:        #17242B;   /* dusk slate — primary text */
+    --ink-soft:   #4A5A61;   /* secondary text */
+    --paper:      #F2F4EF;   /* alpine mist — page background */
+    --paper-raised:#FFFFFF;  /* card surfaces */
+    --line:       #DCE1D9;   /* hairline borders */
+
+    --teal:       #0E5C56;   /* deep lake teal — primary accent */
+    --teal-dark:  #0A4440;
+    --teal-tint:  #E3EEEC;
+
+    --marigold:   #E7A33E;   /* truck-art marigold — secondary accent */
+    --marigold-dark:#BD8129;
+
+    --brick:      #A84B34;   /* Mohenjo-daro brick — tertiary accent */
+    --brick-tint: #F3E4DE;
+
+    --maroon:     #5C2333;   /* deep truck-art maroon — dark sections/CTA */
+    --maroon-dark:#401824;
+
+    --success:    #2F7A4F;
+    --danger:     #B23B3B;
+    --warning:    #C98A1B;
+
+    /* ---- type ---- */
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Work Sans', -apple-system, Segoe UI, sans-serif;
+    --font-label: 'Barlow Condensed', sans-serif;
+
+    /* ---- shape/space ---- */
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 26px;
+    --shadow-card: 0 1px 2px rgba(23,36,43,.04), 0 8px 24px -12px rgba(23,36,43,.18);
+    --shadow-pop:  0 12px 40px -14px rgba(23,36,43,.35);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+
+h1,h2,h3,h4{
+    font-family:var(--font-display);
+    color:var(--ink);
+    line-height:1.12;
+    margin:0 0 .4em;
+    font-weight:600;
+}
+h1{ font-size:clamp(2.4rem,4vw,3.6rem); font-weight:600; }
+h2{ font-size:clamp(1.7rem,2.6vw,2.4rem); }
+h3{ font-size:1.35rem; }
+p{ line-height:1.7; color:var(--ink-soft); margin:0 0 1em; }
+
+.container{ max-width:1220px; margin:0 auto; padding:0 24px; }
+.section{ padding:88px 0; }
+.section-tight{ padding:56px 0; }
+
+/* ---- eyebrow / labels (waypoint markers) ---- */
+.eyebrow{
+    font-family:var(--font-label);
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.82rem;
+    font-weight:600;
+    color:var(--teal);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+}
+.eyebrow::before{
+    content:"";
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--marigold);
+    display:inline-block;
+}
+.eyebrow.on-dark{ color:var(--marigold); }
+
+/* ---- trail line signature element ---- */
+.trail{
+    width:100%;
+    height:34px;
+    display:block;
+}
+.trail path{
+    fill:none;
+    stroke:var(--line);
+    stroke-width:2;
+    stroke-dasharray:2 10;
+    stroke-linecap:round;
+}
+.trail circle{ fill:var(--marigold); }
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.tp-navbar{
+    background:var(--paper-raised);
+    border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:1000;
+}
+.tp-navbar .navbar-brand{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1.5rem;
+    color:var(--ink);
+    display:flex; align-items:center; gap:10px;
+}
+.tp-navbar .navbar-brand .mark{
+    width:34px; height:34px; border-radius:50%;
+    background:var(--teal);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:1rem; flex-shrink:0;
+}
+.tp-navbar .navbar-brand .mark svg{ width:18px; height:18px; }
+.tp-navbar .nav-link{
+    font-family:var(--font-label);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:.92rem;
+    font-weight:600;
+    color:var(--ink-soft) !important;
+    padding:.5rem 1rem !important;
+    border-radius:var(--radius-sm);
+}
+.tp-navbar .nav-link.active, .tp-navbar .nav-link:hover{ color:var(--teal) !important; background:var(--teal-tint); }
+.tp-navbar .btn-nav-cta{
+    font-family:var(--font-label);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-weight:600;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn{ border-radius:999px; font-weight:600; padding:.62rem 1.5rem; border:1px solid transparent; transition:.18s ease; }
+.btn-sm{ padding:.4rem 1.05rem; font-size:.85rem; }
+.btn-teal{ background:var(--teal); color:#fff; }
+.btn-teal:hover{ background:var(--teal-dark); color:#fff; }
+.btn-outline-teal{ background:transparent; color:var(--teal); border-color:var(--teal); }
+.btn-outline-teal:hover{ background:var(--teal); color:#fff; }
+.btn-marigold{ background:var(--marigold); color:var(--maroon-dark); }
+.btn-marigold:hover{ background:var(--marigold-dark); color:#fff; }
+.btn-outline-light2{ background:transparent; border-color:rgba(255,255,255,.5); color:#fff; }
+.btn-outline-light2:hover{ background:#fff; color:var(--ink); }
+.btn-ghost{ background:transparent; color:var(--ink-soft); border-color:var(--line); }
+.btn-ghost:hover{ background:var(--paper); }
+.btn-danger-outline{ background:transparent; color:var(--danger); border-color:var(--danger); }
+.btn-danger-outline:hover{ background:var(--danger); color:#fff; }
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero{
+    position: relative;
+    background: #F6EFE2;
+    color: var(--ink);
+    overflow: hidden;
+    padding: 100px 0 80px; 
+    border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at top right,
+        rgba(231,163,62,.12),
+        transparent 35%),
+
+        radial-gradient(circle at bottom left,
+        rgba(14,92,86,.08),
+        transparent 40%);
+
+    pointer-events:none;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            rgba(255,255,255,.18),
+            rgba(255,255,255,.18)
+        );
+
+    pointer-events:none;
+}
+
+.hero .container{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    color:#1E4C52;
+    font-weight:700;
+}
+
+.hero p.lead{
+    color:#50626A;
+    font-size:1.15rem;
+    max-width:560px;
+    line-height:1.8;
+}
+
+.hero-stats{
+    display:flex;
+    gap:36px;
+    margin-top:38px;
+    flex-wrap:wrap;
+}
+
+.hero-stats .stat-num{
+    font-family:var(--font-display);
+    font-size:2rem;
+    font-weight:700;
+    color:#C96A2F;
+}
+
+.hero-stats .stat-label{
+    font-family:var(--font-label);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:.78rem;
+    color:#6F7B7F;
+}
+/* ===============================
+   Province Passport Responsive
+================================ */
+
+.province-passport{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(120px,1fr));
+    gap:24px;
+    justify-items:center;
+    align-items:center;
+    max-width:520px;
+    margin:auto;
+}
+
+.passport-card{
+    display:flex;
+    justify-content:left;
+    align-items:center;
+}
+
+.passport-circle{
+    width:145px;
+    height:145px;
+    border-radius:50%;
+    border:4px dashed;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:8px;
+    transition:.35s ease;
+}
+
+.passport-inner{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    border:1px solid;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.passport-inner i{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.passport-inner h6{
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:5px;
+    line-height:1.3;
+}
+
+.passport-inner small{
+    font-size:14px;
+    letter-spacing:.5px;
+}
+
+/* Hover */
+
+
+.passport-circle:hover{
+    transform:translateY(-3px) scale(1.02);
+}
+
+/* Punjab */
+
+.passport-punjab{
+    border-color:#C96A2F;
+    color:#C96A2F;
+}
+
+.passport-punjab .passport-inner{
+    border-color:#DAB89A;
+}
+
+/* Sindh */
+
+.passport-sindh{
+    border-color:#1E5C66;
+    color:#1E5C66;
+}
+
+.passport-sindh .passport-inner{
+    border-color:#AFC4CB;
+}
+
+/* KP */
+
+.passport-kp{
+    border-color:#557C59;
+    color:#557C59;
+}
+
+.passport-kp .passport-inner{
+    border-color:#B6C8B7;
+}
+
+/* Balochistan */
+
+.passport-balochistan{
+    border-color:#E3A34B;
+    color:#E3A34B;
+}
+
+.passport-balochistan .passport-inner{
+    border-color:#F2D8A8;
+}
+
+/* GB */
+
+.passport-gb{
+    border-color:#4F6D94;
+    color:#4F6D94;
+}
+
+.passport-gb .passport-inner{
+    border-color:#BAC7D8;
+}
+
+/* AJK */
+
+.passport-ajk{
+    border-color:#884A4A;
+    color:#884A4A;
+}
+
+.passport-ajk .passport-inner{
+    border-color:#D5B4B4;
+}
+/* ==========================================================================
+   CARDS — provinces / posts / categories
+   ========================================================================== */
+.card-tp{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    box-shadow:var(--shadow-card);
+    transition:transform .2s ease, box-shadow .2s ease;
+    height:100%;
+}
+.card-tp:hover{ transform:translateY(-4px); box-shadow:var(--shadow-pop); }
+
+.province-card .img-wrap{ position:relative; aspect-ratio:4/3; overflow:hidden; }
+.province-card .img-wrap img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.province-card:hover .img-wrap img{ transform:scale(1.06); }
+.province-card .img-wrap::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(23,36,43,.75) 0%, transparent 55%);
+}
+.province-card .img-caption{
+    position:absolute; left:16px; right:16px; bottom:14px; z-index:2; color:#fff;
+}
+.province-card .img-caption h3{ color:#fff; margin-bottom:2px; font-size:1.25rem; }
+.province-card .img-caption .meta{ font-family:var(--font-label); font-size:.82rem; letter-spacing:.05em; opacity:.85; }
+.province-card .card-body-tp{ padding:16px 18px 18px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+
+.post-card .img-wrap{ aspect-ratio:16/10; overflow:hidden; }
+.post-card .img-wrap img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.post-card:hover .img-wrap img{ transform:scale(1.06); }
+.post-card .card-body-tp{ padding:20px; }
+.post-card .cat-badges{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+
+/* postmark badge (categories) */
+.badge-stamp{
+    font-family:var(--font-label);
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    font-size:.72rem;
+    font-weight:600;
+    padding:4px 11px;
+    border-radius:999px;
+    border:1px dashed var(--teal);
+    color:var(--teal);
+    background:var(--teal-tint);
+    display:inline-block;
+}
+.badge-stamp.brick{ border-color:var(--brick); color:var(--brick); background:var(--brick-tint); }
+.badge-stamp.marigold{ border-color:var(--marigold-dark); color:var(--marigold-dark); background:#FBF0DC; }
+
+.post-meta{ font-family:var(--font-label); letter-spacing:.04em; font-size:.85rem; color:var(--ink-soft); display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+.post-meta .dot::before{ content:"•"; margin-right:14px; color:var(--line); }
+
+.category-pill{
+    display:flex; align-items:center; gap:12px;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    padding:16px 18px;
+    transition:.2s;
+}
+.category-pill:hover{ border-color:var(--teal); background:var(--teal-tint); }
+.category-pill .cat-icon{
+    width:44px; height:44px; border-radius:50%;
+    background:var(--maroon); color:var(--marigold);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+
+/* ==========================================================================
+   SECTION HEADERS
+   ========================================================================== */
+.section-head{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; gap:20px; flex-wrap:wrap; }
+.section-head .link-all{ font-family:var(--font-label); text-transform:uppercase; letter-spacing:.06em; font-weight:600; color:var(--teal); border-bottom:1px solid var(--teal); padding-bottom:2px; }
+
+.band-dark{ background:var(--ink); color:#fff; }
+.band-dark h2{ color:#fff; }
+.band-dark p{ color:rgba(255,255,255,.7); }
+.band-teal{ background:var(--teal); color:#fff; }
+.band-teal h2{ color:#fff; }
+
+/* ==========================================================================
+   FORMS
+   ========================================================================== */
+.form-tp label{ font-family:var(--font-label); text-transform:uppercase; letter-spacing:.05em; font-size:.8rem; font-weight:600; color:var(--ink-soft); margin-bottom:6px; }
+.form-tp .form-control, .form-tp .form-select{
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:.65rem .9rem;
+    background:var(--paper-raised);
+}
+.form-tp .form-control:focus, .form-tp .form-select:focus{ border-color:var(--teal); box-shadow:0 0 0 3px var(--teal-tint); }
+.auth-card{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-card);
+    padding:44px;
+}
+.field-error{ color:var(--danger); font-size:.82rem; margin-top:4px; display:none; }
+.is-invalid-tp{ border-color:var(--danger) !important; }
+.form-alert{ display:none; padding:.8rem 1rem; border-radius:var(--radius-sm); font-size:.9rem; margin-bottom:1rem; }
+.form-alert.success{ background:#E7F3EA; color:var(--success); border:1px solid #BFE0C8; }
+.form-alert.error{ background:#F8E8E8; color:var(--danger); border:1px solid #EAC3C3; }
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.tp-footer{
+    background: var(--maroon-dark);
+    color: rgba(255,255,255,.92);
+    padding: 4rem 0 1.5rem;
+}
+
+.tp-footer h4,
+.tp-footer .footer-brand{
+    color: #fff;
+}
+
+.tp-footer h4{
+    font-size: 1.1rem;
+}
+
+.tp-footer a{
+    color: rgba(255,255,255,.88);
+    transition: color .3s ease;
+}
+
+.tp-footer a:hover{
+    color: var(--marigold);
+}
+
+.tp-footer p,
+.tp-footer li,
+.tp-footer span{
+    color: rgba(255,255,255,.85);
+}
+
+.tp-footer hr{
+    border-color: rgba(255,255,255,.15);
+    margin: 2.25rem 0 1.25rem;
+}
+
+.social-dot{
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+}
+
+.social-dot:hover{
+    background: var(--marigold);
+    color: var(--maroon-dark);
+}
+/* ==========================================================================
+   DASHBOARD SHELL (user + admin)
+   ========================================================================== */
+.dash-shell{ display:flex; min-height:calc(100vh - 72px); }
+.dash-sidebar{
+    width:264px; flex-shrink:0;
+    background:var(--ink);
+    color:rgba(255,255,255,.8);
+    padding:28px 18px;
+}
+.dash-sidebar .side-user{ display:flex; gap:12px; align-items:center; padding:0 8px 22px; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:18px; }
+.dash-sidebar .side-user img{ width:44px; height:44px; border-radius:50%; object-fit:cover; }
+.dash-sidebar .side-user .name{ color:#fff; font-weight:600; font-size:.95rem; }
+.dash-sidebar .side-user .role{ font-family:var(--font-label); text-transform:uppercase; font-size:.72rem; letter-spacing:.05em; color:var(--marigold); }
+.dash-nav a{
+    display:flex; align-items:center; gap:12px;
+    padding:.65rem .9rem; border-radius:var(--radius-sm);
+    font-size:.92rem; font-weight:500; color:rgba(255,255,255,.72);
+    margin-bottom:2px;
+}
+.dash-nav a:hover{ background:rgba(255,255,255,.06); color:#fff; }
+.dash-nav a.active{ background:var(--teal); color:#fff; }
+.dash-nav .nav-section-label{ font-family:var(--font-label); text-transform:uppercase; letter-spacing:.08em; font-size:.7rem; color:rgba(255,255,255,.4); margin:18px 10px 6px; }
+.dash-main{ flex:1; padding:32px; min-width:0; }
+.dash-topbar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; flex-wrap:wrap; gap:14px; }
+
+.stat-card{ background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius-md); padding:22px; box-shadow:var(--shadow-card); }
+.stat-card .stat-icon{ width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+.stat-card .stat-value{ font-family:var(--font-display); font-size:1.9rem; font-weight:700; }
+.stat-card .stat-label{ font-family:var(--font-label); text-transform:uppercase; font-size:.78rem; letter-spacing:.05em; color:var(--ink-soft); }
+
+.panel-tp{ background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius-md); box-shadow:var(--shadow-card); }
+.panel-tp .panel-head{ padding:18px 22px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+.panel-tp .panel-body{ padding:22px; }
+
+.table-tp{ margin-bottom:0; }
+.table-tp thead th{ font-family:var(--font-label); text-transform:uppercase; letter-spacing:.05em; font-size:.76rem; color:var(--ink-soft); border-bottom:2px solid var(--line); font-weight:600; padding:12px 14px; }
+.table-tp tbody td{ padding:12px 14px; vertical-align:middle; border-bottom:1px solid var(--line); font-size:.92rem; }
+.table-tp tbody tr:hover{ background:var(--paper); }
+
+.status-pill{ font-family:var(--font-label); text-transform:uppercase; font-size:.72rem; letter-spacing:.04em; font-weight:600; padding:4px 10px; border-radius:999px; }
+.status-pill.active{ background:#E7F3EA; color:var(--success); }
+.status-pill.inactive{ background:#F1F1EC; color:var(--ink-soft); }
+.status-pill.pending{ background:#FBF0DC; color:var(--warning); }
+.status-pill.rejected{ background:#F8E8E8; color:var(--danger); }
+
+.theme-swatch{ width:100%; aspect-ratio:1; border-radius:var(--radius-sm); border:2px solid var(--line); cursor:pointer; }
+.theme-swatch.selected{ border-color:var(--teal); box-shadow:0 0 0 3px var(--teal-tint); }
+
+/* ==========================================================================
+   MISC — gallery, comments, pagination
+   ========================================================================== */
+.gallery-thumb{ aspect-ratio:1; overflow:hidden; border-radius:var(--radius-sm); cursor:pointer; border:2px solid transparent; }
+.gallery-thumb img{ width:100%; height:100%; object-fit:cover; transition:.2s; }
+.gallery-thumb:hover img{ transform:scale(1.08); }
+
+.lightbox-tp{ position:fixed; inset:0; background:rgba(23,36,43,.92); z-index:2000; display:none; align-items:center; justify-content:center; flex-direction:column; }
+.lightbox-tp.open{ display:flex; }
+.lightbox-tp img{ max-height:74vh; max-width:88vw; border-radius:var(--radius-sm); }
+.lightbox-tp .lb-controls{ margin-top:18px; display:flex; gap:16px; align-items:center; }
+.lightbox-tp .lb-btn{ width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.1); color:#fff; display:flex; align-items:center; justify-content:center; border:none; }
+.lightbox-tp .lb-btn:hover{ background:var(--marigold); color:var(--maroon-dark); }
+.lightbox-tp .lb-close{ position:absolute; top:24px; right:28px; }
+
+.comment-item{ display:flex; gap:14px; padding:18px 0; border-bottom:1px solid var(--line); }
+.comment-item img{ width:44px; height:44px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+.comment-item .c-name{ font-weight:600; font-size:.93rem; }
+.comment-item .c-date{ font-family:var(--font-label); font-size:.78rem; color:var(--ink-soft); letter-spacing:.03em; }
+
+.pagination-tp{ display:flex; gap:6px; justify-content:center; margin-top:36px; }
+.pagination-tp a{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); font-size:.88rem; font-weight:600; color:var(--ink-soft); }
+.pagination-tp a.active{ background:var(--teal); color:#fff; border-color:var(--teal); }
+.pagination-tp a:hover:not(.active){ background:var(--paper); }
+
+@media (max-width:991px){
+    .dash-shell{ flex-direction:column; }
+    .dash-sidebar{ width:100%; }
+}
+/* ==========================================================
+   HERO RESPONSIVE
+========================================================== */
+
+/* ---------------- Desktop ---------------- */
+
+@media (max-width:1200px){
+
+    .province-passport{
+        max-width:460px;
+        gap:22px;
+    }
+
+    .passport-circle{
+        width:130px;
+        height:130px;
+    }
+
+}
+
+/* ---------------- Tablet ---------------- */
+
+@media (max-width:991.98px){
+
+    .hero{
+        text-align:center;
+    }
+
+    .hero .row{
+        flex-direction:column;
+    }
+
+    .hero p.lead{
+        margin:0 auto;
+        max-width:600px;
+    }
+
+    .hero-stats{
+        justify-content:center;
+        gap:24px;
+    }
+
+    .hero .d-flex.gap-3.mt-4{
+        justify-content:center;
+    }
+
+    .hero .d-flex.gap-3.mt-4 .btn{
+        min-width:220px;
+    }
+
+    .province-passport{
+        margin:55px auto 0;
+        max-width:430px;
+        gap:18px;
+    }
+
+    .passport-circle{
+        width:120px;
+        height:120px;
+    }
+
+    .passport-inner i{
+        font-size:24px;
+    }
+
+    .passport-inner h6{
+        font-size:14px;
+        line-height:1.25;
+    }
+
+    .passport-inner small{
+        font-size:12px;
+    }
+
+}
+
+/* ---------------- Mobile ---------------- */
+
+@media (max-width:767.98px){
+
+    .province-passport{
+
+        grid-template-columns:repeat(2,1fr);
+
+        max-width:280px;
+
+        gap:18px;
+
+    }
+
+    .passport-circle{
+
+        width:110px;
+        height:110px;
+
+    }
+
+    .passport-inner{
+
+        padding:8px;
+
+    }
+
+    .passport-inner i{
+
+        font-size:20px;
+        margin-bottom:6px;
+
+    }
+
+    .passport-inner h6{
+
+        font-size:12px;
+        line-height:1.2;
+        margin:4px 0;
+
+        /* Prevent text overflow */
+        word-break:break-word;
+
+    }
+
+    .passport-inner small{
+
+        font-size:11px;
+
+    }
+
+}
+
+/* ---------------- Small Phones ---------------- */
+
+@media (max-width:420px){
+
+    .province-passport{
+
+        max-width:250px;
+        gap:14px;
+
+    }
+
+    .passport-circle{
+
+        width:100px;
+        height:100px;
+
+    }
+
+    .passport-inner{
+
+        padding:6px;
+
+    }
+
+    .passport-inner i{
+
+        font-size:18px;
+
+    }
+
+    .passport-inner h6{
+
+        font-size:11px;
+        line-height:1.15;
+
+    }
+
+    .passport-inner small{
+
+        font-size:10px;
+
+    }
+
+    .hero-stats{
+
+        gap:16px;
+
+    }
+
+    .hero-stats > div{
+
+        min-width:120px;
+
+    }
+
+}
+
+.passport-inner{
+
+    overflow:hidden;
+
+}
+
+.passport-inner h6{
+
+    text-align:center;
+    word-break:break-word;
+    overflow-wrap:break-word;
+
+}
+
+.passport-inner small{
+
+    display:block;
+    text-align:center;
+
+}
