@@ -1,0 +1,4 @@
+# Prevent any uploaded file from being executed as a script
+<FilesMatch "\.(php|php5|phtml|pl|py|cgi|asp|aspx)$">
+    Require all denied
+</FilesMatch>

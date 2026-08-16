@@ -1,0 +1,197 @@
+/* ===================== LMS Custom Styles ===================== */
+:root{
+    --primary: #2f5fed;
+    --primary-dark: #1e3fb3;
+    --bg-soft: #f4f6fb;
+    --sidebar-bg: #101a3a;
+    --sidebar-hover: #1c2a5e;
+}
+
+body{
+    background-color: var(--bg-soft);
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* -------- Guest pages (login/register) -------- */
+.auth-wrapper{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary) 0%, #6a3ee8 100%);
+    padding: 1.5rem;
+}
+.auth-card{
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    max-width: 430px;
+    width: 100%;
+    padding: 2.2rem;
+}
+.auth-card h3{ font-weight: 700; }
+.brand-logo{
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: .5px;
+}
+
+/* -------- Dashboard layout -------- */
+.dashboard-wrapper{ display: flex; min-height: 100vh; }
+.sidebar{
+    width: 250px;
+    background: var(--sidebar-bg);
+    color: #fff;
+    min-height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    padding-top: 1rem;
+    transition: transform .25s ease;
+    z-index: 1030;
+    overflow-y:auto;
+}
+.sidebar .brand{
+    font-size: 1.25rem;
+    font-weight: 800;
+    padding: .75rem 1.25rem 1.25rem;
+    display:block;
+    color:#fff;
+    text-decoration:none;
+}
+.sidebar .nav-link{
+    color: #c8d1f0;
+    padding: .65rem 1.25rem;
+    font-size: .95rem;
+    border-left: 3px solid transparent;
+    cursor:pointer;
+}
+.sidebar .nav-link i{ width: 22px; display:inline-block; }
+.sidebar .nav-link:hover, .sidebar .nav-link.active{
+    background: var(--sidebar-hover);
+    color: #fff;
+    border-left: 3px solid var(--primary);
+}
+.main-content{
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 1.5rem 1.75rem 3rem;
+}
+.topbar{
+    background:#fff;
+    border-radius: 10px;
+    padding: .85rem 1.25rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom: 1.5rem;
+}
+.sidebar-toggle{ display:none; }
+
+@media (max-width: 991px){
+    .sidebar{ transform: translateX(-100%); }
+    .sidebar.show{ transform: translateX(0); }
+    .main-content{ margin-left: 0; width: 100%; }
+    .sidebar-toggle{ display:inline-block; }
+}
+
+/* -------- Cards / stats -------- */
+.stat-card{
+    background:#fff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    border-left: 4px solid var(--primary);
+}
+.stat-card h3{ font-weight: 800; margin-bottom:0; }
+.stat-card p{ color:#777; margin-bottom:0; }
+
+.course-card{
+    background:#fff;
+    border-radius: 12px;
+    overflow:hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    height:100%;
+    transition: transform .15s ease;
+}
+.course-card:hover{ transform: translateY(-3px); }
+.course-card .course-banner{
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary), #6a3ee8);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:700; font-size:1.1rem; text-align:center; padding: .5rem;
+}
+.course-card .card-body{ padding: 1rem; }
+
+.btn-primary{ background: var(--primary); border-color: var(--primary); }
+.btn-primary:hover{ background: var(--primary-dark); border-color: var(--primary-dark); }
+
+/* -------- Chat -------- */
+.chat-box{
+    background:#fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    display:flex;
+    flex-direction:column;
+    height: 65vh;
+}
+.chat-messages{
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+.chat-bubble{
+    max-width: 70%;
+    padding: .55rem .9rem;
+    border-radius: 14px;
+    margin-bottom: .6rem;
+    font-size: .92rem;
+    word-wrap: break-word;
+}
+.chat-bubble .sender{
+    font-size: .75rem;
+    font-weight: 700;
+    display:block;
+    margin-bottom: 2px;
+}
+.chat-bubble .time{
+    font-size: .68rem;
+    opacity: .65;
+    display:block;
+    margin-top: 3px;
+}
+.chat-bubble.me{
+    background: var(--primary);
+    color:#fff;
+    margin-left: auto;
+    border-bottom-right-radius: 3px;
+}
+.chat-bubble.other{
+    background: #eef1fa;
+    color: #222;
+    margin-right: auto;
+    border-bottom-left-radius: 3px;
+}
+.chat-bubble.teacher-msg{
+    background: #fff3cd;
+    border: 1px solid #ffe08a;
+}
+.chat-input-area{
+    border-top: 1px solid #eee;
+    padding: .75rem;
+    display:flex;
+    gap: .5rem;
+}
+
+/* -------- Empty state -------- */
+.empty-state{
+    text-align:center;
+    padding: 3rem 1rem;
+    color: #888;
+}
+.empty-state i{ font-size: 2.5rem; margin-bottom: .75rem; display:block; color:#c3c9de; }
+
+/* Misc */
+.badge-role{ text-transform: capitalize; }
+.table thead{ background:#f0f2f9; }
+.section-title{ font-weight:700; margin-bottom: 1rem; }
