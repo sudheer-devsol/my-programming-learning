@@ -1,1 +1,1 @@
-PHP practice code, exercises, concepts, and projects from my learning journey
+PHP practice code, exercises, concepts, and projects from my learning journey.
