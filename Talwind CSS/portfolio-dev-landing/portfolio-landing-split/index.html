@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>portfolio.dev — Full-Stack Developer</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script>
+  /* Extend Tailwind's default theme with our own color + font tokens */
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#4F46E5',
+          primarydark: '#3730A3',
+          accent: '#F59E0B',
+          ink: '#0B1120',
+          inksoft: '#1E293B',
+          paper: '#F8FAFC',
+          muted: '#64748B'
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace']
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-white">
+
+<!-- ============ NAVBAR ============ -->
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-100">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+
+    <!--This is the logo-->
+    <a href="#home" class="flex items-center gap-2 font-display font-bold text-lg text-ink">
+      <span class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-sm">&lt;/&gt;</span>
+      portfolio<span class="text-primary">.dev</span>
+    </a>
+
+    <!--This is the desktop navigation-->
+    <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-inksoft">
+      <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
+      <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
+      <li><a href="#skills" class="hover:text-primary transition-colors">Skills</a></li>
+      <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
+      <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+    </ul>
+
+    <!--This is the right-side actions (theme toggle + CTA + hamburger)-->
+    <div class="flex items-center gap-3">
+      <button id="theme-toggle" aria-label="Toggle theme" class="hidden sm:flex w-9 h-9 rounded-full border border-slate-200 items-center justify-center text-inksoft hover:border-primary hover:text-primary transition-colors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+
+      <a href="#contact" class="hidden sm:inline-block bg-primary hover:bg-primarydark text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+        Hire Me
+      </a>
+
+      <!--This is the mobile hamburger button-->
+      <button id="hamburger-btn" aria-label="Open menu" class="md:hidden w-9 h-9 flex items-center justify-center text-ink">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!--This is the mobile navigation panel-->
+  <div id="mobile-menu" data-open="false" class="md:hidden bg-white border-t border-slate-100">
+    <ul class="flex flex-col px-5 py-3 gap-1 text-sm font-medium text-inksoft">
+      <li><a href="#home" class="block py-2">Home</a></li>
+      <li><a href="#about" class="block py-2">About</a></li>
+      <li><a href="#skills" class="block py-2">Skills</a></li>
+      <li><a href="#projects" class="block py-2">Projects</a></li>
+      <li><a href="#contact" class="block py-2">Contact</a></li>
+      <li><a href="#contact" class="block mt-2 bg-primary text-white text-center py-2 rounded-lg">Hire Me</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ HERO SECTION ============ -->
+<section id="home" class="hero-glow pt-16 pb-20 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+    <!--This is the hero text content-->
+    <div>
+      <span class="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-mono font-medium px-3 py-1.5 rounded-full mb-5">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+        Available for Freelance Projects
+      </span>
+
+      <!--This is the heading-->
+      <h1 class="hero-heading font-display font-bold text-4xl sm:text-5xl leading-tight text-ink mb-5">
+        I Build Digital<br>
+        Products That<br>
+        <span class="text-primary">Actually Ship.</span>
+      </h1>
+
+      <p class="text-muted text-base sm:text-lg leading-relaxed mb-8 max-w-md">
+        A full-stack developer who designs, builds, and ships fast, reliable web
+        products — from first line of code to production deploy.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4 mb-10">
+        <a href="#projects" class="bg-primary hover:bg-primarydark text-white text-sm font-semibold px-6 py-3 rounded-lg transition-colors inline-flex items-center gap-2">
+          View Projects <span>&rarr;</span>
+        </a>
+        <a href="#" class="border border-slate-200 hover:border-primary hover:text-primary text-inksoft text-sm font-semibold px-6 py-3 rounded-lg transition-colors inline-flex items-center gap-2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3M8 11l4 4 4-4M4 21h16"/></svg>
+          Download Resume
+        </a>
+      </div>
+
+      <!--This is the quick stats row under the hero text-->
+      <div class="grid grid-cols-4 gap-4 max-w-md">
+        <div>
+          <p class="font-display font-bold text-xl text-ink">50+</p>
+          <p class="text-xs text-muted mt-1">Projects Done</p>
+        </div>
+        <div>
+          <p class="font-display font-bold text-xl text-ink">6+</p>
+          <p class="text-xs text-muted mt-1">Years Exp.</p>
+        </div>
+        <div>
+          <p class="font-display font-bold text-xl text-primary">98%</p>
+          <p class="text-xs text-muted mt-1">Client Satisfaction</p>
+        </div>
+        <div>
+          <p class="font-display font-bold text-xl text-ink">24/7</p>
+          <p class="text-xs text-muted mt-1">Support</p>
+        </div>
+      </div>
+    </div>
+
+    <!--This is the hero dashboard mockup card-->
+    <div id="hero-mockup" class="relative lg:translate-x-4">
+      <div class="bg-ink rounded-2xl shadow-2xl p-5 max-w-md mx-auto">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-400"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+            <span class="w-3 h-3 rounded-full bg-green-400"></span>
+          </div>
+          <span class="text-[11px] font-mono text-green-400 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span> Deployed
+          </span>
+        </div>
+
+        <p class="text-slate-400 font-mono text-xs mb-4">Project Overview — portfolio-ecommerce</p>
+
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <div class="bg-inksoft rounded-lg p-3">
+            <p class="text-slate-400 text-[11px] mb-1">Performance</p>
+            <p class="text-white font-display font-semibold text-lg">98/100</p>
+          </div>
+          <div class="bg-inksoft rounded-lg p-3">
+            <p class="text-slate-400 text-[11px] mb-1">Load Time</p>
+            <p class="text-white font-display font-semibold text-lg">0.8s</p>
+          </div>
+        </div>
+
+        <p class="text-slate-400 font-mono text-[11px] mb-2">Recent Activity</p>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between bg-inksoft rounded-lg px-3 py-2">
+            <span class="text-slate-200 text-xs">Build passed — main branch</span>
+            <span class="text-[10px] font-mono text-green-400 bg-green-400/10 px-2 py-0.5 rounded">PASS</span>
+          </div>
+          <div class="flex items-center justify-between bg-inksoft rounded-lg px-3 py-2">
+            <span class="text-slate-200 text-xs">Lighthouse audit completed</span>
+            <span class="text-[10px] font-mono text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">98%</span>
+          </div>
+          <div class="flex items-center justify-between bg-inksoft rounded-lg px-3 py-2">
+            <span class="text-slate-200 text-xs">Deployed to production</span>
+            <span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded">LIVE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAND ============ -->
+<section class="bg-paper border-y border-slate-100 py-12 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+    <div>
+      <p class="font-display font-bold text-3xl text-primary">50+</p>
+      <p class="text-sm text-muted mt-1">Projects Completed</p>
+    </div>
+    <div>
+      <p class="font-display font-bold text-3xl text-primary">40+</p>
+      <p class="text-sm text-muted mt-1">Happy Clients</p>
+    </div>
+    <div>
+      <p class="font-display font-bold text-3xl text-primary">6+</p>
+      <p class="text-sm text-muted mt-1">Years Experience</p>
+    </div>
+    <div>
+      <p class="font-display font-bold text-3xl text-primary">12</p>
+      <p class="text-sm text-muted mt-1">Awards Won</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES / SKILLS SECTION ============ -->
+<section id="skills" class="py-24 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+
+    <!--This is the section heading-->
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="inline-block bg-primary/10 text-primary text-xs font-mono font-medium px-3 py-1 rounded-full mb-4">Services</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-4">What I Do</h2>
+      <p class="text-muted text-base">
+        From idea to production, I handle every layer of the stack so your
+        product ships fast and holds up under real users.
+      </p>
+    </div>
+
+    <!--This is the services grid-->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="border border-slate-100 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all">
+        <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg text-ink mb-2">Web Development</h3>
+        <p class="text-sm text-muted leading-relaxed">Responsive, performant web apps built with modern frameworks and clean, maintainable code.</p>
+      </div>
+
+      <div class="border border-slate-100 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all">
+        <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg text-ink mb-2">UI / UX Design</h3>
+        <p class="text-sm text-muted leading-relaxed">Interfaces that feel obvious to use — wireframes, prototypes, and pixel-accurate handoffs.</p>
+      </div>
+
+      <div class="border border-slate-100 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all">
+        <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg text-ink mb-2">Mobile Development</h3>
+        <p class="text-sm text-muted leading-relaxed">Cross-platform mobile apps with native-feeling performance from a single codebase.</p>
+      </div>
+
+      <div class="border border-slate-100 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all">
+        <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg text-ink mb-2">API Development</h3>
+        <p class="text-sm text-muted leading-relaxed">Secure, documented REST and GraphQL APIs designed to scale with your product.</p>
+      </div>
+
+      <div class="border border-slate-100 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all">
+        <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16.5 14.5"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg text-ink mb-2">Performance Tuning</h3>
+        <p class="text-sm text-muted leading-relaxed">Faster load times and smoother interactions through profiling, caching, and code-splitting.</p>
+      </div>
+
+      <div class="border border-slate-100 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all">
+        <div class="w-11 h-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg>
+        </div>
+        <h3 class="font-display font-semibold text-lg text-ink mb-2">SEO &amp; Analytics</h3>
+        <p class="text-sm text-muted leading-relaxed">Technical SEO foundations and analytics setup so you can measure what matters.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED PROJECTS SECTION ============ -->
+<section id="projects" class="bg-paper py-24 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+
+    <!--This is the section heading-->
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="inline-block bg-primary/10 text-primary text-xs font-mono font-medium px-3 py-1 rounded-full mb-4">Portfolio</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-4">Featured Projects</h2>
+      <p class="text-muted text-base">A few recent builds — each one shipped to production and used by real customers.</p>
+    </div>
+
+    <!--This is the projects grid-->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="bg-white rounded-xl overflow-hidden border border-slate-100 hover:shadow-lg transition-all">
+        <div class="h-40 bg-gradient-to-br from-primary to-primarydark flex items-center justify-center text-white font-mono text-sm">
+          <img 
+            src="assets/images/ecommerce-dashboard.png"
+            alt="Commerce Dashboard"
+            class="w-full h-full object-cover"
+            >
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-lg text-ink mb-1">Commerce Dashboard</h3>
+          <p class="text-sm text-muted mb-3">Real-time sales analytics platform for multi-store retailers.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[11px] font-mono bg-primary/10 text-primary px-2 py-0.5 rounded">React</span>
+            <span class="text-[11px] font-mono bg-primary/10 text-primary px-2 py-0.5 rounded">Node.js</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden border border-slate-100 hover:shadow-lg transition-all">
+        <div class="h-40 bg-gradient-to-br from-ink to-inksoft flex items-center justify-center text-white font-mono text-sm">
+          <img 
+            src="assets/images/Fiteness.png"
+            alt="Commerce Dashboard"
+            class="w-full h-full object-cover"
+            >
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-lg text-ink mb-1">Fitness Tracker</h3>
+          <p class="text-sm text-muted mb-3">Cross-platform mobile app with workout planning and progress charts.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[11px] font-mono bg-primary/10 text-primary px-2 py-0.5 rounded">React Native</span>
+            <span class="text-[11px] font-mono bg-primary/10 text-primary px-2 py-0.5 rounded">Firebase</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden border border-slate-100 hover:shadow-lg transition-all">
+        <div class="h-40 bg-gradient-to-br from-accent to-primarydark flex items-center justify-center text-white font-mono text-sm">
+          <img 
+            src="assets/images/Booking dashoard.png"
+            alt="Commerce Dashboard"
+            class="w-full h-full object-cover"
+            >
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-lg text-ink mb-1">Booking Platform</h3>
+          <p class="text-sm text-muted mb-3">End-to-end reservation system with payments and calendar sync.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[11px] font-mono bg-primary/10 text-primary px-2 py-0.5 rounded">Next.js</span>
+            <span class="text-[11px] font-mono bg-primary/10 text-primary px-2 py-0.5 rounded">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS SECTION ============ -->
+<section id="about" class="py-24 px-5 sm:px-8 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+
+    <!--This is the section heading-->
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="inline-block bg-primary/10 text-primary text-xs font-mono font-medium px-3 py-1 rounded-full mb-4">Testimonials</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-4">What Clients Say</h2>
+      <p class="text-muted text-base">Feedback from the people I've built products for.</p>
+    </div>
+
+    <!--This is the testimonial carousel-->
+    <div class="relative max-w-5xl mx-auto">
+      <div class="overflow-hidden">
+        <div id="testimonial-track" class="flex">
+
+          <div class="testimonial-card flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+            <div class="border border-slate-100 rounded-xl p-6 h-full">
+              <div class="text-accent text-sm mb-3">★★★★★</div>
+              <p class="text-inksoft text-sm leading-relaxed mb-5">"Delivered ahead of schedule and the code quality made our team's job so much easier afterward. Communication was excellent throughout."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center font-display font-semibold text-sm">R</div>
+                <div>
+                  <p class="text-sm font-semibold text-ink">Rachel Kim</p>
+                  <p class="text-xs text-muted">Product Lead, Northwind</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+            <div class="border border-slate-100 rounded-xl p-6 h-full">
+              <div class="text-accent text-sm mb-3">★★★★★</div>
+              <p class="text-inksoft text-sm leading-relaxed mb-5">"Rebuilt our checkout flow and conversion jumped 18% in the first month. Genuinely understands both engineering and product."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center font-display font-semibold text-sm">D</div>
+                <div>
+                  <p class="text-sm font-semibold text-ink">David Okafor</p>
+                  <p class="text-xs text-muted">Founder, Marketloop</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+            <div class="border border-slate-100 rounded-xl p-6 h-full">
+              <div class="text-accent text-sm mb-3">★★★★★</div>
+              <p class="text-inksoft text-sm leading-relaxed mb-5">"One of the few developers I've worked with who proactively flags issues before they become problems. Highly recommend."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center font-display font-semibold text-sm">S</div>
+                <div>
+                  <p class="text-sm font-semibold text-ink">Sofia Marin</p>
+                  <p class="text-xs text-muted">CTO, Healthwave</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!--This is the carousel controls-->
+      <button id="testimonial-prev" aria-label="Previous testimonial" class="hidden sm:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-slate-200 items-center justify-center text-inksoft hover:border-primary hover:text-primary shadow-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button id="testimonial-next" aria-label="Next testimonial" class="hidden sm:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-slate-200 items-center justify-center text-inksoft hover:border-primary hover:text-primary shadow-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <!--This is the carousel dot indicators-->
+      <div id="testimonial-dots" class="flex justify-center gap-2 mt-6"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT SECTION ============ -->
+<section id="contact" class="bg-paper py-24 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+
+    <!--This is the section heading-->
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="inline-block bg-primary/10 text-primary text-xs font-mono font-medium px-3 py-1 rounded-full mb-4">Get In Touch</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-4">Let's Work Together</h2>
+      <p class="text-muted text-base">Have a project in mind? Tell me about it and I'll get back to you within 24 hours.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+
+      <!--This is the contact form-->
+      <form id="contact-form" class="lg:col-span-3 bg-white border border-slate-100 rounded-xl p-6 space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="full-name" class="block text-sm font-medium text-inksoft mb-1">Full Name</label>
+            <input type="text" id="full-name" placeholder="John Doe" required
+                   class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-inksoft mb-1">Email Address</label>
+            <input type="email" id="email" placeholder="john@example.com" required
+                   class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary">
+          </div>
+        </div>
+
+        <div>
+          <label for="project-type" class="block text-sm font-medium text-inksoft mb-1">Project Type</label>
+          <select id="project-type" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary">
+            <option>Select a project type</option>
+            <option>Web Application</option>
+            <option>Mobile App</option>
+            <option>API / Backend</option>
+            <option>UI / UX Design</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="details" class="block text-sm font-medium text-inksoft mb-1">Project Details</label>
+          <textarea id="details" rows="4" placeholder="Tell me about your project..."
+                    class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"></textarea>
+        </div>
+
+        <button type="submit" class="bg-primary hover:bg-primarydark text-white text-sm font-semibold px-6 py-3 rounded-lg transition-colors inline-flex items-center gap-2">
+          Send Message <span>&rarr;</span>
+        </button>
+
+        <p id="form-success" class="hidden text-sm text-green-600 font-medium">Thanks! Your message has been noted — I'll reply soon.</p>
+      </form>
+
+      <!--This is the contact info panel-->
+      <div class="lg:col-span-2 space-y-5">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <p class="text-xs text-muted">Phone</p>
+            <p class="text-sm font-semibold text-ink">(555) 234-8901</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          </div>
+          <div>
+            <p class="text-xs text-muted">Email</p>
+            <p class="text-sm font-semibold text-ink">hello@portfolio.dev</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <p class="text-xs text-muted">Location</p>
+            <p class="text-sm font-semibold text-ink">Remote — Worldwide</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <p class="text-xs text-muted">Availability</p>
+            <p class="text-sm font-semibold text-ink">Mon – Fri, 9AM – 6PM (GMT)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ SECTION ============ -->
+<section class="py-24 px-5 sm:px-8">
+  <div class="max-w-3xl mx-auto">
+
+    <!--This is the section heading-->
+    <div class="text-center mb-12">
+      <span class="inline-block bg-primary/10 text-primary text-xs font-mono font-medium px-3 py-1 rounded-full mb-4">FAQ</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-4">Frequently Asked Questions</h2>
+      <p class="text-muted text-base">Common questions about working together.</p>
+    </div>
+
+    <!--This is the FAQ accordion list-->
+    <div id="faq-list" class="divide-y divide-slate-100 border-t border-b border-slate-100">
+
+      <div class="faq-item py-5" data-open="false">
+        <button class="faq-question w-full flex items-center justify-between text-left">
+          <span class="font-medium text-ink text-sm sm:text-base">What's your typical project timeline?</span>
+          <span class="faq-icon text-primary text-xl leading-none">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="text-sm text-muted pt-3 pr-8">Most web app projects take 4–8 weeks from kickoff to launch, depending on scope. I'll give you a firm estimate after our first call.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-5" data-open="false">
+        <button class="faq-question w-full flex items-center justify-between text-left">
+          <span class="font-medium text-ink text-sm sm:text-base">Do you work with existing codebases?</span>
+          <span class="faq-icon text-primary text-xl leading-none">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="text-sm text-muted pt-3 pr-8">Yes — I regularly join projects mid-flight to fix bugs, add features, or refactor legacy code. I'll audit the codebase before quoting.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-5" data-open="false">
+        <button class="faq-question w-full flex items-center justify-between text-left">
+          <span class="font-medium text-ink text-sm sm:text-base">What's included after launch?</span>
+          <span class="faq-icon text-primary text-xl leading-none">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="text-sm text-muted pt-3 pr-8">Every project includes 30 days of post-launch support for bug fixes at no extra cost. Ongoing maintenance retainers are available after that.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-5" data-open="false">
+        <button class="faq-question w-full flex items-center justify-between text-left">
+          <span class="font-medium text-ink text-sm sm:text-base">How do you handle pricing?</span>
+          <span class="faq-icon text-primary text-xl leading-none">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="text-sm text-muted pt-3 pr-8">Fixed-price for well-scoped projects, hourly for ongoing or open-ended work. You'll always get a clear quote before anything starts.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-5" data-open="false">
+        <button class="faq-question w-full flex items-center justify-between text-left">
+          <span class="font-medium text-ink text-sm sm:text-base">Can you work with my in-house team?</span>
+          <span class="faq-icon text-primary text-xl leading-none">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="text-sm text-muted pt-3 pr-8">Absolutely — I regularly embed with in-house teams, joining standups and using your existing tools and workflows.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA BAND ============ -->
+<section class="cta-gradient py-20 px-5 sm:px-8 text-center">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mb-4">Have a Project in Mind?</h2>
+    <p class="text-white/80 text-base mb-8">Let's turn your idea into a product people actually want to use.</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#contact" class="bg-white text-primary hover:bg-slate-100 text-sm font-semibold px-6 py-3 rounded-lg transition-colors">Start a Project</a>
+      <a href="#contact" class="border border-white/40 text-white hover:bg-white/10 text-sm font-semibold px-6 py-3 rounded-lg transition-colors inline-flex items-center gap-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Talk to Me
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-slate-300 pt-16 pb-8 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+    <!--This is the footer brand column-->
+    <div>
+      <a href="#home" class="flex items-center gap-2 font-display font-bold text-lg text-white mb-3">
+        <span class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-sm">&lt;/&gt;</span>
+        portfolio<span class="text-primary">.dev</span>
+      </a>
+      <p class="text-sm text-slate-400 leading-relaxed mb-4">Full-stack developer building fast, reliable products for startups and teams worldwide.</p>
+      <div class="flex items-center gap-3">
+        <a href="#" aria-label="GitHub" class="w-8 h-8 rounded-full bg-inksoft flex items-center justify-center hover:bg-primary transition-colors">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.07.78 2.15v3.19c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="w-8 h-8 rounded-full bg-inksoft flex items-center justify-center hover:bg-primary transition-colors">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" class="w-8 h-8 rounded-full bg-inksoft flex items-center justify-center hover:bg-primary transition-colors">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23 4.9c-.8.36-1.67.6-2.58.71a4.5 4.5 0 0 0 1.98-2.5 9 9 0 0 1-2.85 1.1 4.49 4.49 0 0 0-7.65 4.1A12.75 12.75 0 0 1 2.7 3.9a4.49 4.49 0 0 0 1.39 6 4.4 4.4 0 0 1-2.03-.56v.06a4.49 4.49 0 0 0 3.6 4.4 4.5 4.5 0 0 1-2.02.08 4.49 4.49 0 0 0 4.2 3.12A9 9 0 0 1 1 19.54 12.7 12.7 0 0 0 7.9 21.5c8.29 0 12.83-6.87 12.83-12.83 0-.2 0-.39-.02-.58A9.2 9.2 0 0 0 23 4.9z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!--This is the footer quick links column-->
+    <div>
+      <h4 class="text-white font-display font-semibold text-sm mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
+        <li><a href="#skills" class="hover:text-primary transition-colors">Skills</a></li>
+        <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
+        <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+      </ul>
+    </div>
+
+    <!--This is the footer services column-->
+    <div>
+      <h4 class="text-white font-display font-semibold text-sm mb-4">Services</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#skills" class="hover:text-primary transition-colors">Web Development</a></li>
+        <li><a href="#skills" class="hover:text-primary transition-colors">UI / UX Design</a></li>
+        <li><a href="#skills" class="hover:text-primary transition-colors">Mobile Development</a></li>
+        <li><a href="#skills" class="hover:text-primary transition-colors">API Development</a></li>
+      </ul>
+    </div>
+
+    <!--This is the footer resources column-->
+    <div>
+      <h4 class="text-white font-display font-semibold text-sm mb-4">Resources</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+        <li><a href="#" class="hover:text-primary transition-colors">Case Studies</a></li>
+        <li><a href="#" class="hover:text-primary transition-colors">Resume</a></li>
+        <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!--This is the footer bottom bar-->
+  <div class="max-w-7xl mx-auto border-t border-inksoft pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+    <p>&copy; 2026 portfolio.dev. All rights reserved.</p>
+    <div class="flex gap-5">
+      <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+      <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+
+</body>
+</html>
