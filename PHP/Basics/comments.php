@@ -1,60 +1,71 @@
 <?php
     /*
-    Comments: Comments are used to write notes or explanations
-    inside the code.
+    Comments: Comments are notes written inside source code.
 
-    Comments are ignored by PHP when the code is executed.
+    PHP ignores comments during execution.
 
     Comments are useful for:
-        -> Explaining the code
-        -> Making code easier to understand
-        -> Adding notes for yourself or other developers
+
+        -> Explaining code
+        -> Writing notes
+        -> Documenting concepts
         -> Temporarily disabling code
-
-    PHP supports three common ways to write comments:
-
-    1. Single-line comment using //
-    2. Single-line comment using #
-    3. Multi-line comment using  /* */
+        -> Making learning examples easier to understand
+    */
 
 
-    // This is a single-line comment using two forward slashes.
+    // Single-Line Comment
 
-    echo "Hello PHP";
-    echo "<br>";
+    // echo "This code is commented out.";
+
+    echo "Single-line comments use //.";
+    echo "<br><br>";
 
 
-    # This is also a single-line comment.
+    # Single-Line Comment using #
 
-    echo "Learning PHP";
-    echo "<br>";
+    # echo "This code is also commented out.";
+
+    echo "PHP also supports # for single-line comments.";
+    echo "<br><br>";
 
 
     /*
-        This is a multi-line comment.
+        Multi-Line Comment
 
-        We can write multiple lines
-        inside this type of comment.
+        Multiple lines can be written
+        inside a single comment block.
     */
 
-    echo "PHP Comments";
-    echo "<br>";
+    echo "Multi-line comments use /* and */.";
+    echo "<br><br>";
 
 
-    // Comments can also be used to temporarily disable code.
+    // Comments can be used to temporarily disable code
 
-    $name = "Ali";
+    $name = "Sudheer";
 
     // echo $name;
 
-    echo "The name is $name.";
-    echo "<br>";
+    echo "The variable contains: " . $name;
+    echo "<br><br>";
 
 
     /*
-        The following code will not be executed
-        because it is inside a comment.
+        The following code is disabled.
 
-        echo "This will not be displayed.";
+        $name = "Ali";
+        echo $name;
+
+        PHP will completely ignore this section.
     */
+
+
+    // Comments can also explain why code exists
+
+    $score = 90;
+
+    // Display the student's score.
+
+    echo "Student Score: " . $score;
 ?>

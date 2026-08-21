@@ -1,79 +1,69 @@
 <?php
-    /* 
-    Data Types: Data types define what kind of data a variable contains.
+    /*
+    Data Types: A data type tells PHP what kind of value
+    is stored in a variable.
 
-    PHP supports several data types.
+    Common PHP data types include:
 
-    Common PHP data types are:
+        1. String
+        2. Integer
+        3. Float
+        4. Boolean
+        5. Array
+        6. NULL
 
-    1. String
-    2. Integer
-    3. Float
-    4. Boolean
-    5. Array
-    6. NULL
-    7. Object
-    8. Resource
-
-    In this file, we will understand the basic data types
-    with simple examples.
+    PHP is dynamically typed, which means the same variable
+    can hold different types of values at different times.
     */
 
 
     // String
-    // A string is a sequence of characters or text.
 
-    $name = "Ali";
-    $course = "PHP";
+    $data = "PHP Learning";
 
-    echo $name;
+    echo $data;
     echo "<br>";
 
-    echo $course;
+    var_dump($data);
     echo "<br><br>";
 
 
     // Integer
-    // An integer is a whole number without a decimal point.
 
-    $age = 20;
-    $students = 50;
+    $data = 780;
 
-    echo $age;
+    echo $data;
     echo "<br>";
 
-    echo $students;
+    var_dump($data);
     echo "<br><br>";
 
 
     // Float
-    // A float is a number that contains a decimal point.
 
-    $marks = 88.5;
-    $price = 1500.75;
+    $data = 45.67;
 
-    echo $marks;
+    echo $data;
     echo "<br>";
 
-    echo $price;
+    var_dump($data);
     echo "<br><br>";
 
 
     // Boolean
-    // A boolean can have only two values: true or false.
 
-    $isPass = true;
-    $isFail = false;
+    $data = true;
 
-    echo $isPass;
+    var_dump($data);
     echo "<br>";
 
-    echo $isFail;
+    $data = false;
+
+    var_dump($data);
     echo "<br><br>";
 
 
     // NULL
-    // NULL means that a variable has no value.
 
     $data = null;
 
@@ -81,28 +71,114 @@
     echo "<br><br>";
 
 
-    // Array
-    // An array is used to store multiple values in one variable.
+    // Empty String
 
-    $subjects = array("PHP", "HTML", "CSS", "JavaScript");
+    $data = "";
 
-    var_dump($subjects);
+    var_dump($data);
     echo "<br><br>";
 
 
-    // We can use var_dump() to check the data type and value.
+    // Array
 
-    var_dump($name);
+    $data = array(10, 20, "PHP", 10.98);
+
+    var_dump($data);
+    echo "<br><br>";
+
+
+    // Checking Data Type with gettype()
+
+    /*
+    gettype() returns the data type of a variable as a string.
+    */
+
+    $data = 90;
+
+    echo gettype($data);
     echo "<br>";
 
-    var_dump($age);
+    $data = 78.09;
+
+    echo gettype($data);
     echo "<br>";
 
-    var_dump($marks);
+    $data = "PHP";
+
+    echo gettype($data);
     echo "<br>";
 
-    var_dump($isPass);
+    $data = true;
+
+    echo gettype($data);
     echo "<br>";
 
+    $data = null;
+
+    echo gettype($data);
+    echo "<br><br>";
+
+
+    // Changing Data Type with settype()
+
+    /*
+    settype() changes the data type of an existing variable.
+
+    The original value may be converted according to the
+    requested data type.
+    */
+
+    $data = 50;
+
+    echo gettype($data);
+    echo "<br>";
+
+    settype($data, "string");
+
+    echo gettype($data);
+    echo "<br><br>";
+
+
+    $data = "50";
+
+    echo gettype($data);
+    echo "<br>";
+
+    settype($data, "integer");
+
+    echo gettype($data);
+    echo "<br><br>";
+
+
+    // One Variable Can Hold Different Data Types
+
+    /*
+    PHP does not require us to permanently declare a variable
+    as one data type.
+
+    The variable can be reassigned with another type.
+    */
+
+    $data = "PHP";
+    var_dump($data);
+
+    echo "<br>";
+
+    $data = 100;
+    var_dump($data);
+
+    echo "<br>";
+
+    $data = 50.5;
+    var_dump($data);
+
+    echo "<br>";
+
+    $data = false;
+    var_dump($data);
+
+    echo "<br>";
+
+    $data = null;
     var_dump($data);
 ?>

@@ -2,35 +2,27 @@
     /*
     Strings: A string is a sequence of characters or text.
 
-    Strings are commonly used to store:
+    Strings are used to store:
+
         -> Names
         -> Messages
         -> Addresses
         -> Emails
         -> Sentences
-        -> Any other text
+        -> Other text data
 
-    In PHP, strings can be written using:
+    PHP supports strings using:
+
         -> Single quotes ' '
         -> Double quotes " "
-
-    Example:
-    $name = "Ali";
-    $city = 'Shikarpur';
-
-    Note: Strings can contain letters, numbers, spaces and
-    special characters.
     */
 
 
-    // Creating Strings
+    // Creating a String
 
-    $name = "Ali";
+    $name = "Sudheer";
     $city = "Shikarpur";
-    $message = 'Welcome to PHP Learning';
-
-
-    // Printing Strings
+    $message = 'Welcome to PHP';
 
     echo $name;
     echo "<br>";
@@ -42,42 +34,32 @@
     echo "<br><br>";
 
 
-    // Single Quotes
+    // Single-Quoted Strings
 
-    /*
-    Strings written inside single quotes are treated as plain text.
-
-    Example:
-    */
-
-    $name = 'Ali';
+    $name = 'Sudheer';
 
     echo $name;
     echo "<br><br>";
 
 
-    // Double Quotes
+    // Double-Quoted Strings
 
-    /*
-    Double quotes allow us to use variables directly inside
-    the string. This is called variable interpolation.
-    */
+    $name = "Sudheer";
 
-    $name = "Ali";
-    $age = 20;
-
-    echo "My name is $name and I am $age years old.";
+    echo $name;
     echo "<br><br>";
 
 
     // Single Quotes vs Double Quotes
 
     /*
-    In single quotes, the variable is not automatically replaced
-    with its value.
+    Variables inside single quotes are treated as normal text.
 
-    In double quotes, the variable is replaced with its value.
+    Variables inside double quotes can be interpreted by PHP.
+    This is called variable interpolation.
     */
+
+    $name = "Sudheer";
 
     echo 'My name is $name.';
     echo "<br>";
@@ -86,44 +68,95 @@
     echo "<br><br>";
 
 
-    // Concatenation
+    // Quotes Inside Strings
 
     /*
-    Concatenation means joining two or more strings together.
-
-    In PHP, we use the dot (.) operator for concatenation.
+    We can use one type of quotation mark inside the other
+    without escaping it.
 
     Example:
-    $firstName . $lastName
+        Double quotes can contain single quotes.
+        Single quotes can contain double quotes.
     */
 
-    $firstName = "Ali";
-    $lastName = "Khan";
+    $message = "Today I am learning 'PHP'.";
+    echo $message;
+    echo "<br>";
 
-    $fullName = $firstName . " " . $lastName;
-
-    echo $fullName;
+    $message = 'Today I am learning "PHP".';
+    echo $message;
     echo "<br><br>";
 
 
-    // Concatenating Multiple Strings
+    // Escape Characters
 
-    $name = "Ali";
-    $course = "PHP";
-    $institute = "HIST";
+    /*
+    When the same quotation mark is needed inside a string,
+    we can escape it using a backslash (\).
 
-    echo "My name is " . $name . " and I am learning "
-        . $course . " from " . $institute . ".";
+    Example:
 
+        \"
+        \'
+    */
+
+    $message = "Today I am learning \"PHP\".";
+
+    echo $message;
+    echo "<br>";
+
+    $message = 'Today I am learning \'PHP\'.';
+
+    echo $message;
     echo "<br><br>";
 
 
-    // Concatenation with Variables and Text
+    // Invalid Quote Examples
 
-    $product = "Laptop";
-    $price = 75000;
+    /*
+    The following examples would cause syntax errors because
+    the string is ended before the intended quotation mark.
 
-    echo "The price of the " . $product . " is Rs. " . $price . ".";
+        $data = "Today I am learning "PHP"";
+        $data = 'Today I am learning 'PHP'';
+
+    Escape characters solve this problem.
+    */
+
+
+    // String with an Apostrophe
+
+    $message = "He Said \"That's\" Fine And Left";
+
+    echo $message;
+    echo "<br><br>";
+
+
+    // String Concatenation
+
+    /*
+    Concatenation means joining multiple strings together.
+
+    PHP uses the dot (.) operator for concatenation.
+    */
+
+    $firstName = "Sudheer";
+    $middleName = "Ahmed";
+    $lastName = "Mangi";
+
+    echo $firstName . $middleName . $lastName;
+    echo "<br>";
+
+    echo $firstName . " " . $middleName . " " . $lastName;
+    echo "<br><br>";
+
+
+    // Concatenating Text and Variables
+
+    $carGameScore = 280;
+
+    echo $firstName . " " . $lastName .
+        " scored " . $carGameScore . " points.";
 
     echo "<br><br>";
 
@@ -131,15 +164,16 @@
     // Concatenation Assignment Operator
 
     /*
-    We can also use .= to add more text to an existing string.
+    The .= operator adds new text to the existing string.
 
     Example:
-    $message .= "More text";
+
+        $message .= " More text";
     */
 
     $message = "Hello";
 
-    $message .= " Ali";
+    $message .= " Sudheer";
     $message .= ", welcome to PHP.";
 
     echo $message;
@@ -149,60 +183,41 @@
     // String Length
 
     /*
-    strlen() is used to find the number of characters
-    in a string.
+    strlen() returns the number of characters in a string.
     */
 
     $text = "Hello PHP";
 
     echo strlen($text);
-
     echo "<br><br>";
 
 
-    // Converting String to Uppercase
-
-    /*
-    strtoupper() converts all characters of a string
-    into uppercase letters.
-    */
+    // Convert String to Uppercase
 
     $text = "hello php";
 
     echo strtoupper($text);
-
     echo "<br><br>";
 
 
-    // Converting String to Lowercase
-
-    /*
-    strtolower() converts all characters of a string
-    into lowercase letters.
-    */
+    // Convert String to Lowercase
 
     $text = "HELLO PHP";
 
     echo strtolower($text);
-
     echo "<br><br>";
 
 
-    // Accessing Characters of a String
+    // Accessing Characters
 
     /*
-    We can access individual characters of a string
-    using their index number.
+    String characters use zero-based indexing.
 
-    The index starts from 0.
-
-    Example:
-
-    H = 0
-    e = 1
-    l = 2
-    l = 3
-    o = 4
+        H = 0
+        e = 1
+        l = 2
+        l = 3
+        o = 4
     */
 
     $text = "Hello";
@@ -217,24 +232,19 @@
     echo "<br><br>";
 
 
-    // Updating a Character in a String
+    // Updating a Character
 
     $text = "Hello";
 
     $text[0] = "J";
 
     echo $text;
-
     echo "<br><br>";
 
 
-    // Checking the Data Type of a String
+    // Checking a String's Data Type
 
-    /*
-    var_dump() displays the data type and value.
-    */
-
-    $name = "Ali";
+    $name = "Sudheer";
 
     var_dump($name);
 ?>
